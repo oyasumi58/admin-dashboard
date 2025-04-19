@@ -8,18 +8,32 @@
 }
 
 body {
+    --headmargin: 20px;
     box-sizing: border-box;
     font-family: 'Roboto' , Georgia, 'Times New Roman', Times, serif;
     margin: 0px;
     padding: 0px;
+    overflow: hidden;
 }
 
 ul {
     padding: 0px;
+    margin: 0px;
 }
 
 li {
     list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+h4 {
+    margin: var(--headmargin) 0px var(--headmargin);
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
 }
 
 .wrapper {
@@ -80,13 +94,18 @@ li {
 }
 
 .main {
-    --padding: 20px;
+    --paddingbot: 30px;
+    --announceheight: 270px;
+    --trendheight: 270px;
+    --maingap: 15px;
     background: rgb(223, 230, 238);
     display: grid;
-    grid-template: 1fr / 5fr 2fr;
-    padding: 0px var(--padding) 0px;
-    overflow: auto;
-    height: 87.5vh;
+    grid-template: 1fr 3fr / 5fr 2fr;
+    padding: 0px 20px var(--paddingbot);
+    overflow: hidden;
+    height: calc(87.5vh - var(--paddingbot));
+    align-content: stretch;
+    gap: var(--maingap);
 }
 
 .col1 {
@@ -95,55 +114,86 @@ li {
 }
 
 .articles {
-    padding-right: 15px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
     gap: 15px;
+    padding: 0px 15px 15px 0px;
 }
 
 .scrollstopper {
-    height: 80vh ;
-    overflow: auto;
+    padding-top: 1px;
     display: content;
+    line-height: 0; /*To remove weird gap*/
+    font-size: 0;
+    overflow: auto;
+    margin: 0px;
+    align-self: stretch;
+    /* height: calc(43px + var(--announceheight) + var(--maingap) + var(--headmargin) + var(--trendheight) ); */
+    height: 625px;
 }
 
 .card {
+    line-height: initial; /*To prevent inheritance*/
+    font-size: initial;
+    vertical-align: top;
     background: white;
     border-radius: 7px;
-    height: 150px;
+    height: 161.4px;
     box-shadow: 3px 6px 11px 0px rgba(0, 0, 0, 0.37);
     padding: 15px;
+    margin: 0px;
 }
 
 .col2top {
+    line-height: 0; /*To remove weird gap*/
+    font-size: 0;
     grid-column: 2;
     grid-row: 1;
+    height: 340px;
+}
+
+.col2top > h4,.col2bot > h4 {
+    line-height: initial; /*fix inheritance*/
+    font-size: initial;
 }
 
 .announcelist {
+    line-height: initial;
+    font-size: initial;
+    overflow: auto;
     display: grid;
     grid-template: 1fr 1fr 1fr/ 1fr;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background: white;
     border-radius: 10px;
     box-shadow: 3px 6px 11px 0px rgba(0, 0, 0, 0.37);
-    max-height: 300px;
+    height: var(--announceheight);
 }
 
 .col2bot {
+    line-height: 0; /*To remove weird gap*/
+    font-size: 0;
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
+    align-self: start;
+    height: 340px;
+}
+
+.col2bot > h4 {
+    margin-top: 0px;
 }
 
 .trendlist {
+    line-height: initial; 
+    font-size: initial;
+    overflow: auto;
     display: grid;
     grid-template: 1fr 1fr 1fr 1fr/ 1fr;
     gap: 10px;
     padding: 0px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background: white;
     border-radius: 10px;
     box-shadow: 3px 6px 11px 0px rgba(0, 0, 0, 0.37);
-    max-height: 300px;
-    align-self: end;
+    height: var(--trendheight);
 }
