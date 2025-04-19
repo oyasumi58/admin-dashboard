@@ -59,12 +59,13 @@ p {
 #searchbar {
     background: rgb(214, 216, 230);
     height: 25px;
-    border-radius: 15px;
+    border-radius: 25px;
     outline: none;
     border: 2px solid rgb(214, 216, 230);
     width: clamp(300px, 90%, 1000px);
     font-size: 1.2rem;
     font-weight: bold;
+    padding: 5px 5px 5px 7px;
 }
 
 #searchbar:hover {
@@ -84,6 +85,7 @@ p {
     border-radius: 20px;
     color: white;
     padding: 5px 25px 5px;
+    font-weight: bold;
 }
 
 button:hover {
@@ -222,7 +224,7 @@ li input[type="image"] {
     background: rgb(223, 230, 238);
     display: grid;
     grid-template: 1fr 3fr / 5fr 2fr;
-    padding: 10px 40px var(--paddingbot) 20px;
+    padding: 10px 5px var(--paddingbot) 20px;
     overflow: hidden;
     height: 75.6vh+1px;
     gap: var(--maingap);
@@ -267,20 +269,51 @@ li input[type="image"] {
     gap: 5px;
 }
 
-.card > :not(div) {
-    margin-left: 10px;
-}
-
 .bar {
     background-color: gold;
-    width: 10px;
-    height: 176.6px;
+    width: clamp(8px,8px,8px);
+    flex-shrink: 0;
+    height: 176.5px;
     border-radius: 7px 0px 0px 7px;
 }
 
+
+
 .cardcontent {
-    margin: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 }
+
+.cardcontent > div{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 7px;
+}
+
+.cardcontent :first-child {
+    margin: 10px 0px 10px;
+}
+
+.cardcontent :nth-child(2) {
+    color: gray;
+    font-size: 0.8rem;
+    font-weight: lighter;
+    line-height: 1rem;
+    max-width: 70char;
+    height: 3rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+} 
 
 .col2top {
     line-height: 0; /*To remove weird gap*/
@@ -313,7 +346,6 @@ li input[type="image"] {
 }
 
 .announcelist p {
-    width:100%;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
