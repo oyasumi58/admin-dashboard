@@ -37,10 +37,15 @@ p {
     margin: 0px;
 }
 
+a:link,a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
 .wrapper {
     display: grid;
-    grid-template: 1fr 7fr / 1fr 5fr;
-    max-height: 100vh;
+    grid-template: 200px 1fr/ 300px 1fr;
+    height: 100vh;
 }
 
 .header {
@@ -52,7 +57,6 @@ p {
     z-index: 1;
     box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.1);
     padding: 20px 50px 20px;
-    height: 15vh;
     gap: 10px;
 } /*smth in here is why the cards cannot fold to one*/
 
@@ -65,7 +69,7 @@ p {
     width: clamp(300px, 90%, 1000px);
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 5px 5px 5px 7px;
+    padding: 5px 5px 4px 7px;
 }
 
 #searchbar:hover {
@@ -111,6 +115,12 @@ button:active {
 
 .colgrp1 {
     grid-column: 1 / 2;
+    display: flex;
+    align-items: center;
+}
+
+.colgrp1 > label {
+    margin-top: 7px;
 }
 
 .colgrp2 {
@@ -166,12 +176,12 @@ button:active {
     grid-column: span 1;
     min-width: 250px;
     display: grid;
-    grid-template: 1fr 5fr 3fr/ 1fr;
+    grid-template: 70px 350px 300px/ 1fr;
     color: white;
     font-weight: bold;
     align-items: start;
     gap: 20px;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     padding: 20px;
 }
 
@@ -182,6 +192,7 @@ button:active {
     display: flex;
     align-items: center;
     gap: 5px;
+    margin-left: 11px;
 }
 
 .sidebar li {
@@ -226,7 +237,7 @@ li input[type="image"] {
     grid-template: 1fr 3fr / 5fr 2fr;
     padding: 10px 5px var(--paddingbot) 20px;
     overflow: hidden;
-    height: 75.6vh+1px;
+    /* height: 75.6vh+1px; */
     gap: var(--maingap);
     position: relative;
     justify-items: stretch;
@@ -240,7 +251,7 @@ li input[type="image"] {
 
 .articles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 15px;
     padding: 0px 15px 15px 0px;
     margin: 0px;
@@ -322,7 +333,6 @@ li input[type="image"] {
     grid-row: 1;
     height: 340px;
     align-self: start;
-    justify-self: right;
 }
 
 .col2top > h4,.col2bot > h4 {
@@ -343,6 +353,7 @@ li input[type="image"] {
     max-height: var(--announceheight);
     padding: 15px 20px 20px;
     width: clamp(170px,80%,100%);
+
 }
 
 .announcelist p {
